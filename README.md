@@ -32,12 +32,64 @@
 ## Installation
 
 ### Termux (Android)
-```bash
+```
 pkg update && pkg upgrade -y
 pkg install python git tor -y
 pip install --upgrade pip
 pip install pysocks
 
-###Linux (Ubuntu/Debian)
+```
 
+### Linux (Ubuntu/Debian)
+```
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3 python3-pip git tor -y
+pip3 install --upgrade pip
+pip3 install pysocks
+```
 
+## Setup
+```
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3 python3-pip git tor -y
+pip3 install --upgrade pip
+pip3 install pysocks
+```
+### Create Tor hidden service folder:
+
+Termux:
+```
+mkdir -p /data/data/com.termux/files/home/tor/hidden_service
+```
+Linux:
+```
+mkdir -p ~/tor/hidden_service
+```
+Update the HIDDEN_SERVICE_DIR variable in onyxchat.py to point to this folder.
+
+## Tor Configuration
+Edit Tor configuration file (torrc):
+
+Termux:
+
+```
+nano /data/data/com.termux/files/usr/etc/tor/torrc
+```
+Add:
+
+```
+HiddenServiceDir /tor/hidden_service/
+HiddenServicePort 5555 127.0.0.1:5555
+```
+
+Linux:
+
+```
+sudo nano /etc/tor/torrc
+```
+Add:
+
+```
+HiddenServiceDir /data/data/com.termux/files/home/tor/hidden_service/
+HiddenServicePort 5555 127.0.0.1:5555
+```
