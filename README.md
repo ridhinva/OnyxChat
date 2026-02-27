@@ -10,7 +10,6 @@
 1. [Features](#features)
 2. [Installation](#installation)
 3. [Setup](#setup)
-4. [Tor Configuration](#tor-configuration)
 5. [Usage](#usage)
 6. [Security Notes](#security-notes)
 7. [Dependencies](#dependencies)
@@ -49,47 +48,19 @@ pip3 install pysocks
 ```
 
 ## Setup
+Termux
 ```
-sudo apt update && sudo apt upgrade -y
-sudo apt install python3 python3-pip git tor -y
-pip3 install --upgrade pip
-pip3 install pysocks
-```
-### Create Tor hidden service folder:
+chmod +x install_onyxchat_termux.sh
+./install_onyxchat_termux.sh
 
-Termux:
-```
-mkdir -p /data/data/com.termux/files/home/tor/hidden_service
-```
-Linux:
-```
-mkdir -p ~/tor/hidden_service
-```
-Update the HIDDEN_SERVICE_DIR variable in onyxchat.py to point to this folder.
-
-## Tor Configuration
-Edit Tor configuration file (torrc):
-
-Termux:
 
 ```
-nano /data/data/com.termux/files/usr/etc/tor/torrc
-```
-Add:
 
-```
-HiddenServiceDir /tor/hidden_service/
-HiddenServicePort 5555 127.0.0.1:5555
+Linux
 ```
 
-Linux:
 
-```
-sudo nano /etc/tor/torrc
-```
-Add:
+chmod +x install_onyxchat_linux.sh
+./install_onyxchat_linux.sh
 
-```
-HiddenServiceDir /data/data/com.termux/files/home/tor/hidden_service/
-HiddenServicePort 5555 127.0.0.1:5555
 ```
