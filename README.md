@@ -65,7 +65,7 @@ Linux:
 ```
 sudo service tor start
 ```
-Run the chat application:
+## Run the chat application:
 ```
 python onyxchat.py
 ```
